@@ -1,4 +1,9 @@
-import { PasswordBlockInfo, DispatchAction, DispatchType } from "types";
+import {
+  PasswordBlockInfo,
+  DispatchAction,
+  DispatchType,
+  PasswordType,
+} from "types";
 
 export function passwordBlockInfosReducer(
   state: PasswordBlockInfo[],
@@ -6,13 +11,23 @@ export function passwordBlockInfosReducer(
 ) {
   switch (action.type) {
     case DispatchType.UPDATE: {
-      return state;
+      const { index, updatedItem } = action;
+      const updatedState = state.map((passwordBlockInfo, i) =>
+        i === index ? updatedItem : passwordBlockInfo,
+      );
+      return updatedState;
     }
     case DispatchType.ADD: {
-      return state;
+      const newPasswordBlockInfo: PasswordBlockInfo = {
+        passwordType: PasswordType.STRONG,
+        password: "Sample strong password",
+        message: "Strong",
+      };
+      return [...state, newPasswordBlockInfo];
     }
     case DispatchType.DELETE: {
-      return state;
+      const { index } = action;
+      return state.filter((_, i) => i !== index);
     }
   }
 }

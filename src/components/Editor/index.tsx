@@ -5,6 +5,7 @@ import EditCard from "./EditCard";
 import NewPasswordBlock from "./NewPasswordBlock";
 
 import { passwordBlockInfosReducer } from "reducer";
+import AddButton from "./AddButton";
 
 const initialPasswordBlockInfos: PasswordBlockInfo[] = [
   {
@@ -25,8 +26,8 @@ function Editor() {
     initialPasswordBlockInfos,
   );
   return (
-    <section className="relative">
-      <div className="container w-72 md:w-[48rem] lg:w-[64rem] flex flex-col md:flex-row gap-12 mt-14 md:mt-20 lg:mt-28 mx-auto">
+    <div className="relative">
+      <div className="container w-72 md:w-[48rem] lg:w-[64rem] flex flex-col md:flex-row gap-12 mx-auto">
         <div className="flex-1 w-full">
           {passwordBlockInfos.map((passwordBlockInfo, index) => (
             <EditCard
@@ -36,6 +37,7 @@ function Editor() {
               index={index}
             />
           ))}
+          <AddButton dispatchFunction={dispatchPasswordBlockInfos} />
         </div>
         <div className="flex-1 w-full">
           {passwordBlockInfos.map(
@@ -50,7 +52,7 @@ function Editor() {
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

@@ -1,25 +1,25 @@
 import { Menu, Transition } from "@headlessui/react";
 import { useState } from "react";
 
+import { PasswordType } from "types";
+
 const passwordTypeToStyle = {
   Weak: "bg-rose-600 hover:bg-rose-700",
   Medium: "bg-orange-600 hover:bg-orange-700",
   Strong: "bg-green-600 hover:bg-green-700",
 };
 
-enum PasswordType {
-  Weak = "Weak",
-  Medium = "Medium",
-  Strong = "Strong",
-}
-
-function DropdownPasswordType() {
-  const [passwordType, setPasswordType] = useState(PasswordType.Medium);
-
+function DropdownPasswordType({
+  passwordType,
+  handlePasswordTypeChange,
+}: {
+  passwordType: PasswordType;
+  handlePasswordTypeChange: (x: PasswordType) => void;
+}) {
   const otherPasswordTypes = [
-    PasswordType.Weak,
-    PasswordType.Medium,
-    PasswordType.Strong,
+    PasswordType.WEAK,
+    PasswordType.MEDIUM,
+    PasswordType.STRONG,
   ].filter((type) => type !== passwordType);
 
   return (
@@ -63,7 +63,9 @@ function DropdownPasswordType() {
                   <Menu.Item>
                     {({ active }) => (
                       <button
-                        onClick={() => setPasswordType(otherPasswordTypes[0])}
+                        onClick={() =>
+                          handlePasswordTypeChange(otherPasswordTypes[0])
+                        }
                         className={`${
                           active ? "bg-gray-100 text-gray-900" : "text-gray-700"
                         } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
@@ -75,7 +77,9 @@ function DropdownPasswordType() {
                   <Menu.Item>
                     {({ active }) => (
                       <button
-                        onClick={() => setPasswordType(otherPasswordTypes[1])}
+                        onClick={() =>
+                          handlePasswordTypeChange(otherPasswordTypes[1])
+                        }
                         className={`${
                           active ? "bg-gray-100 text-gray-900" : "text-gray-700"
                         } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
