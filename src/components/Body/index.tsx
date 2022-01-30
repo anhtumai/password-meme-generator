@@ -32,9 +32,9 @@ function Body() {
     <div className="relative">
       <div className="container w-11/12 md:w-[32rem] lg:w-[64rem] flex flex-col lg:flex-row gap-12 mx-auto py-6">
         <div className="flex-1">
-          <h4 className="text-2xl font-medium leading-tight text-gray-800">
+          <h2 className="text-2xl font-medium leading-tight text-gray-800">
             Edit section
-          </h4>
+          </h2>
           {passwordBlockInfos.map((passwordBlockInfo, index) => (
             <EditCard
               key={index}
@@ -46,9 +46,9 @@ function Body() {
           <AddButton dispatchFunction={dispatchPasswordBlockInfos} />
         </div>
         <div className="flex-1">
-          <h4 className="text-2xl font-medium leading-tight text-gray-800">
+          <h2 className="text-2xl font-medium leading-tight text-gray-800">
             Meme preview
-          </h4>
+          </h2>
           <div ref={capturedSectionRef} className="bg-white">
             {passwordBlockInfos.map(
               ({ passwordType, password, message }, index) => (
