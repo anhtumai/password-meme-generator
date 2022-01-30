@@ -1,11 +1,13 @@
-import { useReducer } from "react";
+import { useReducer, useRef } from "react";
 import { PasswordBlockInfo, PasswordType } from "types";
 
 import EditCard from "./EditCard";
 import NewPasswordBlock from "./NewPasswordBlock";
+import AddButton from "./AddButton";
+import CopyClipboardButton from "./CopyClipboardButton";
+import DownloadButton from "./DownloadButton";
 
 import { passwordBlockInfosReducer } from "reducer";
-import AddButton from "./AddButton";
 
 const initialPasswordBlockInfos: PasswordBlockInfo[] = [
   {
@@ -25,6 +27,7 @@ function Editor() {
     passwordBlockInfosReducer,
     initialPasswordBlockInfos,
   );
+  const capturedSectionRef = useRef<HTMLDivElement>(null);
   return (
     <div className="relative">
       <div className="container w-11/12 md:w-[32rem] lg:w-[64rem] flex flex-col lg:flex-row gap-12 mx-auto">
@@ -40,7 +43,7 @@ function Editor() {
           <AddButton dispatchFunction={dispatchPasswordBlockInfos} />
         </div>
         <div className="flex-1">
-          <div className="bg-white">
+          <div ref={capturedSectionRef} className="bg-white">
             {passwordBlockInfos.map(
               ({ passwordType, password, message }, index) => (
                 <NewPasswordBlock
@@ -51,6 +54,10 @@ function Editor() {
                 />
               ),
             )}
+          </div>
+          <div className="inline-flex gap-12 m-4">
+            <CopyClipboardButton capturedSectionRef={capturedSectionRef} />
+            <DownloadButton capturedSectionRef={capturedSectionRef} />
           </div>
         </div>
       </div>
