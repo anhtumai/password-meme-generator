@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Editor from "./components/Editor";
+import Body from "./components/Body";
 
 export default function App() {
   return (
@@ -8,7 +8,7 @@ export default function App() {
         <Header />
       </section>
       <section className="bg-gray-200 min-h-full h-auto pt-0">
-        <Editor />
+        <Body />
       </section>
     </>
   );

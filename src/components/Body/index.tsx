@@ -22,7 +22,7 @@ const initialPasswordBlockInfos: PasswordBlockInfo[] = [
   },
 ];
 
-function Editor() {
+function Body() {
   const [passwordBlockInfos, dispatchPasswordBlockInfos] = useReducer(
     passwordBlockInfosReducer,
     initialPasswordBlockInfos,
@@ -30,8 +30,11 @@ function Editor() {
   const capturedSectionRef = useRef<HTMLDivElement>(null);
   return (
     <div className="relative">
-      <div className="container w-11/12 md:w-[32rem] lg:w-[64rem] flex flex-col lg:flex-row gap-12 mx-auto">
+      <div className="container w-11/12 md:w-[32rem] lg:w-[64rem] flex flex-col lg:flex-row gap-12 mx-auto py-6">
         <div className="flex-1">
+          <h4 className="text-2xl font-medium leading-tight text-gray-800">
+            Edit section
+          </h4>
           {passwordBlockInfos.map((passwordBlockInfo, index) => (
             <EditCard
               key={index}
@@ -43,6 +46,9 @@ function Editor() {
           <AddButton dispatchFunction={dispatchPasswordBlockInfos} />
         </div>
         <div className="flex-1">
+          <h4 className="text-2xl font-medium leading-tight text-gray-800">
+            Meme preview
+          </h4>
           <div ref={capturedSectionRef} className="bg-white">
             {passwordBlockInfos.map(
               ({ passwordType, password, message }, index) => (
@@ -55,7 +61,7 @@ function Editor() {
               ),
             )}
           </div>
-          <div className="inline-flex gap-12 m-4">
+          <div className="inline-flex gap-12 my-4 ml-1">
             <CopyClipboardButton capturedSectionRef={capturedSectionRef} />
             <DownloadButton capturedSectionRef={capturedSectionRef} />
           </div>
@@ -65,4 +71,4 @@ function Editor() {
   );
 }
 
-export default Editor;
+export default Body;
