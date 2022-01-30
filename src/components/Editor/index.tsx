@@ -27,8 +27,8 @@ function Editor() {
   );
   return (
     <div className="relative">
-      <div className="container w-72 md:w-[48rem] lg:w-[64rem] flex flex-col md:flex-row gap-12 mx-auto">
-        <div className="flex-1 w-full">
+      <div className="container w-11/12 md:w-[32rem] lg:w-[64rem] flex flex-col lg:flex-row gap-12 mx-auto">
+        <div className="flex-1">
           {passwordBlockInfos.map((passwordBlockInfo, index) => (
             <EditCard
               key={index}
@@ -39,17 +39,19 @@ function Editor() {
           ))}
           <AddButton dispatchFunction={dispatchPasswordBlockInfos} />
         </div>
-        <div className="flex-1 w-full">
-          {passwordBlockInfos.map(
-            ({ passwordType, password, message }, index) => (
-              <NewPasswordBlock
-                key={index}
-                passwordType={passwordType}
-                password={password}
-                message={message}
-              />
-            ),
-          )}
+        <div className="flex-1">
+          <div className="bg-white">
+            {passwordBlockInfos.map(
+              ({ passwordType, password, message }, index) => (
+                <NewPasswordBlock
+                  key={index}
+                  passwordType={passwordType}
+                  password={password}
+                  message={message}
+                />
+              ),
+            )}
+          </div>
         </div>
       </div>
     </div>

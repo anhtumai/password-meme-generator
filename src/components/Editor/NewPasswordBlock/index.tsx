@@ -18,11 +18,11 @@ function NewPasswordBlock({
       ? ["bg-orange-600", "bg-orange-600", "bg-gray-400"]
       : ["bg-green-600", "bg-green-600", "bg-green-600"];
   return (
-    <div className="flex flex-col bg-white shadow-lg rounded-lg my-4 px-6">
+    <div className="flex flex-col bg-white shadow-lg rounded-lg my-4 px-6 py-4">
       <h3 className="text-lg decoration-gray-900 font-semibold">
         New Password
       </h3>
-      <p className="my-6 bg-gray-50 border-solid border-2 border-gray-900 text-gray-600 text-lg rounded-lg w-full p-2.5 h-[52px] align-middle w-sm">
+      <p className="my-6 bg-gray-50 border-solid border-2 border-gray-900 text-gray-600 text-lg rounded-lg p-2.5 leading-8 align-middle">
         {password}
       </p>
       <div className="flex flex-row gap-2 mb-2 px-1">
