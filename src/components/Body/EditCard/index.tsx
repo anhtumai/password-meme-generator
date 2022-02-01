@@ -8,6 +8,7 @@ import {
 } from "types";
 
 import DropdownPasswordType from "./DropdownPasswordType";
+import EmojiPicker from "./EmojiPicker";
 
 function EditCard({
   passwordBlockInfo,
@@ -100,11 +101,16 @@ function EditCard({
                   <label className="block mb-2 text-md font-medium text-gray-900">
                     Message
                   </label>
-                  <input
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 block w-full p-2.5"
-                    value={message}
-                    onChange={handleMessageChange}
-                  />
+                  <div className="relative rounded-lg shadow-sm">
+                    <input
+                      className="border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 block w-full p-2.5"
+                      value={message}
+                      onChange={handleMessageChange}
+                    />
+                    <div className="absolute inset-y-0 right-5 flex items-center">
+                      <EmojiPicker />
+                    </div>
+                  </div>
                 </div>
               </Disclosure.Panel>
             </Transition>
