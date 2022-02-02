@@ -48,6 +48,15 @@ function EditCard({
     dispatchFunction({ type: DispatchType.UPDATE, index, updatedItem });
   }
 
+  function handleInsertEmoji(emoji: string) {
+    const updatedItem = {
+      passwordType,
+      password,
+      message: message + emoji,
+    };
+    dispatchFunction({ type: DispatchType.UPDATE, index, updatedItem });
+  }
+
   function handleDelete() {
     if (window.confirm(`Delete Edit card #${index + 1}?`)) {
       dispatchFunction({ type: DispatchType.DELETE, index });
@@ -103,12 +112,12 @@ function EditCard({
                   </label>
                   <div className="relative rounded-lg shadow-sm">
                     <input
-                      className="border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 block w-full p-2.5"
+                      className="border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 block w-full p-2.5 bg-gray-50"
                       value={message}
                       onChange={handleMessageChange}
                     />
                     <div className="absolute inset-y-0 right-5 flex items-center">
-                      <EmojiPicker />
+                      <EmojiPicker handleInsertEmoji={handleInsertEmoji} />
                     </div>
                   </div>
                 </div>

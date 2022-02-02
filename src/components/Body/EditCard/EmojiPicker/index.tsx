@@ -6,7 +6,13 @@ import { usePopper } from "react-popper";
 
 import "emoji-mart/css/emoji-mart.css";
 
-function EmojiPicker() {
+import { BaseEmoji } from "emoji-mart/dist-es/utils/emoji-index/nimble-emoji-index";
+
+function EmojiPicker({
+  handleInsertEmoji,
+}: {
+  handleInsertEmoji: (x: string) => void;
+}) {
   const [referenceElement, setReferenceElement] =
     useState<HTMLButtonElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
@@ -15,6 +21,10 @@ function EmojiPicker() {
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: "top-end",
   });
+
+  function handleSelect(emojiData: BaseEmoji) {
+    handleInsertEmoji(emojiData.native);
+  }
   return (
     <Popover>
       <Popover.Button ref={setReferenceElement} className="text-xl">
@@ -25,7 +35,11 @@ function EmojiPicker() {
         style={{ ...styles.popper, zIndex: 1010 }}
         {...attributes.popper}
       >
-        <Picker />
+        <Picker
+          title="Pick your emoji…"
+          emoji="point_up"
+          onSelect={handleSelect}
+        />
       </Popover.Panel>
     </Popover>
   );

@@ -11,7 +11,6 @@ function DownloadButton({
   async function handleDownload() {
     if (capturedSectionRef.current) {
       const dataUrl = await toPng(capturedSectionRef.current, {});
-      console.log(dataUrl);
       saveAs(dataUrl, `${FILE_NAME}.png`);
     }
   }

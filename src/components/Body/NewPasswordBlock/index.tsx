@@ -22,7 +22,7 @@ function NewPasswordBlock({
       <h3 className="text-lg decoration-gray-900 font-semibold">
         New Password
       </h3>
-      <p className="my-6 bg-gray-50 border-solid border-2 border-gray-900 text-gray-600 text-md rounded-lg p-2.5 leading-8 align-middle">
+      <p className="my-6 bg-gray-50 border-solid border-2 border-gray-900 text-gray-900 text-md rounded-lg p-2.5 leading-8 align-middle">
         {password}
       </p>
       <div className="flex flex-row gap-2 mb-2 px-1">
