@@ -20,9 +20,9 @@ function Body() {
     <div className="relative">
       <div className="container w-11/12 md:w-[32rem] lg:w-[64rem] flex flex-col lg:flex-row gap-12 mx-auto py-6">
         <div className="flex-1">
-          <h2 className="text-2xl font-medium leading-tight text-gray-800">
+          <h3 className="text-2xl font-medium leading-tight text-gray-800 text-center">
             Edit section
-          </h2>
+          </h3>
           {passwordBlockInfos.map((passwordBlockInfo, index) => (
             <EditCard
               key={index}
@@ -37,9 +37,9 @@ function Body() {
           </div>
         </div>
         <div className="flex-1">
-          <h2 className="text-2xl font-medium leading-tight text-gray-800">
+          <h3 className="text-2xl font-medium leading-tight text-gray-800 text-center">
             Meme preview
-          </h2>
+          </h3>
           <div ref={capturedSectionRef} className="bg-white">
             {passwordBlockInfos.map(
               ({ passwordType, password, message }, index) => (

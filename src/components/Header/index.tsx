@@ -4,7 +4,7 @@ function Header() {
       <h1 className="text-2xl md:text-3xl font-normal">
         Password Meme Generator
       </h1>
-      <p className="text-lg md:text-xl py-2">Weak vs Strong password meme</p>
+      <h2 className="text-lg md:text-xl py-2">Weak vs Strong password meme</h2>
     </div>
   );
 }
