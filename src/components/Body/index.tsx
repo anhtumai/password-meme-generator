@@ -7,20 +7,8 @@ import AddButton from "./AddButton";
 import CopyClipboardButton from "./CopyClipboardButton";
 import DownloadButton from "./DownloadButton";
 
-import { passwordBlockInfosReducer } from "reducer";
-
-const initialPasswordBlockInfos: PasswordBlockInfo[] = [
-  {
-    passwordType: PasswordType.WEAK,
-    password: "Sample Weak Password",
-    message: "Weak",
-  },
-  {
-    passwordType: PasswordType.STRONG,
-    password: "Sample Strong Password",
-    message: "Strong",
-  },
-];
+import { initialPasswordBlockInfos, passwordBlockInfosReducer } from "reducer";
+import ResetButton from "./ResetButton";
 
 function Body() {
   const [passwordBlockInfos, dispatchPasswordBlockInfos] = useReducer(
@@ -43,7 +31,10 @@ function Body() {
               index={index}
             />
           ))}
-          <AddButton dispatchFunction={dispatchPasswordBlockInfos} />
+          <div className="flex">
+            <AddButton dispatchFunction={dispatchPasswordBlockInfos} />
+            <ResetButton dispatchFunction={dispatchPasswordBlockInfos} />
+          </div>
         </div>
         <div className="flex-1">
           <h2 className="text-2xl font-medium leading-tight text-gray-800">

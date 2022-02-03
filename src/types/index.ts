@@ -14,6 +14,7 @@ export enum DispatchType {
   UPDATE,
   DELETE,
   ADD,
+  RESET,
 }
 
 export type DispatchAction =
@@ -28,4 +29,7 @@ export type DispatchAction =
   | {
       type: DispatchType.DELETE;
       index: number;
+    }
+  | {
+      type: DispatchType.RESET;
     };

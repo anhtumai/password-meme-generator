@@ -5,6 +5,19 @@ import {
   PasswordType,
 } from "types";
 
+export const initialPasswordBlockInfos: PasswordBlockInfo[] = [
+  {
+    passwordType: PasswordType.WEAK,
+    password: "Sample Weak Password",
+    message: "Weak",
+  },
+  {
+    passwordType: PasswordType.STRONG,
+    password: "Sample Strong Password",
+    message: "Strong",
+  },
+];
+
 export function passwordBlockInfosReducer(
   state: PasswordBlockInfo[],
   action: DispatchAction,
@@ -28,6 +41,9 @@ export function passwordBlockInfosReducer(
     case DispatchType.DELETE: {
       const { index } = action;
       return state.filter((_, i) => i !== index);
+    }
+    case DispatchType.RESET: {
+      return initialPasswordBlockInfos;
     }
   }
 }
