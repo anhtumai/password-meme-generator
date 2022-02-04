@@ -1,5 +1,4 @@
 import { useReducer, useRef } from "react";
-import { PasswordBlockInfo, PasswordType } from "types";
 
 import EditCard from "./EditCard";
 import NewPasswordBlock from "./NewPasswordBlock";
